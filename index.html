@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>毕业设计——仿生潜水鱼 · VANTA</title>
+    <link rel="stylesheet" href="vanta.css" />
+    <link rel="stylesheet" href="responsive.css" />
+  </head>
+  <body class="layout-scale">
+    <div class="file-warn">
+      请勿直接打开 HTML 文件。请先运行任务「启动网页服务」，或终端:
+      <code style="background: rgba(0, 0, 0, 0.2); padding: 0.1rem 0.35rem; border-radius: 4px"
+        >npm start</code
+      >
+    </div>
+    <div id="viewport" class="viewport">
+      <div id="scale-stage">
+      <div class="ui" id="ui" data-node-id="125:5">
+        <header class="hdr" data-node-id="125:333">
+          <div class="logo-wrap">
+            <img
+              src="assets/vanta-logo.png"
+              alt="VANTA"
+              onerror="this.onerror=null;this.src='https://www.figma.com/api/mcp/asset/b984b33f-005e-4286-9836-56b3d07e60c4'"
+            />
+          </div>
+          <div class="hdr-meta">
+            <div class="hdr-item accent">
+              <label>任务编号</label>
+              <strong>RESCUE-20240520-001</strong>
+            </div>
+            <div class="hdr-item">
+              <label>当前深度</label>
+              <strong id="hdrDepth">23.6m</strong>
+            </div>
+            <div class="hdr-item hdr-runtime">
+              <label>运行时间</label>
+              <strong id="runTime">00:45:32</strong>
+            </div>
+            <div class="hdr-item hdr-signal">
+              <label>信号强度</label>
+              <div class="hdr-signal-row">
+                <svg class="hdr-signal-icon" viewBox="0 0 19 12" aria-hidden="true">
+                  <rect x="0" y="7" width="3" height="5" rx="0.5" fill="#e24101" />
+                  <rect x="5" y="5" width="3" height="7" rx="0.5" fill="#e24101" />
+                  <rect x="10" y="2" width="3" height="10" rx="0.5" fill="#e24101" />
+                  <rect x="15" y="0" width="3" height="12" rx="0.5" fill="#e24101" />
+                </svg>
+                <strong id="hdrSignal">强</strong>
+              </div>
+            </div>
+            <div class="hdr-item hdr-clock">
+              <strong class="t" id="clockTime">14:32:18</strong>
+              <span class="d" id="clockDate">2024-05-20</span>
+            </div>
+            <div class="hdr-item hdr-battery">
+              <label>电量剩余</label>
+              <strong id="gaugeBattery">78%</strong>
+            </div>
+          </div>
+        </header>
+
+        <section class="panel left-robot" data-node-id="125:306">
+          <div class="robot-head">
+            <h2 class="title">机器人状态</h2>
+            <span class="conn-badge off" id="robotConnBadge">未连接</span>
+          </div>
+          <div class="rov-stage">
+            <div class="rov-img">
+              <img src="assets/rov-hero.png" alt="ROV-7A" />
+            </div>
+          </div>
+          <div class="rov-meta">
+            <p class="rov-name">ROV-7A</p>
+            <span class="type-badge">水下探测型</span>
+          </div>
+          <div class="gauges">
+            <div class="gauge-item">
+              <div class="gauge-arc-wrap" aria-hidden="true">
+                <img
+                  class="gauge-arc-img"
+                  src="assets/gauge-arc.png"
+                  alt=""
+                  onerror="this.onerror=null;this.src='https://www.figma.com/api/mcp/asset/e8640616-8df6-49d1-b730-fdff82980a58'"
+                />
+              </div>
+              <span class="val green" id="gaugeBattery2">78%</span>
+              <span class="lbl">电量</span>
+            </div>
+            <div class="gauge-item">
+              <div class="gauge-arc-wrap" aria-hidden="true">
+                <img
+                  class="gauge-arc-img"
+                  src="assets/gauge-arc.png"
+                  alt=""
+                  onerror="this.onerror=null;this.src='https://www.figma.com/api/mcp/asset/e8640616-8df6-49d1-b730-fdff82980a58'"
+                />
+              </div>
+              <span class="val" id="robotDepthVal">23.6m</span>
+              <span class="lbl">深度</span>
+            </div>
+            <div class="gauge-item">
+              <div class="gauge-arc-wrap" aria-hidden="true">
+                <img
+                  class="gauge-arc-img"
+                  src="assets/gauge-arc.png"
+                  alt=""
+                  onerror="this.onerror=null;this.src='https://www.figma.com/api/mcp/asset/e8640616-8df6-49d1-b730-fdff82980a58'"
+                />
+              </div>
+              <span class="val" id="robotStatusVal">正常</span>
+              <span class="lbl">状态</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel left-sensors" data-node-id="125:38">
+          <div class="sensor-head" data-node-id="125:106">
+            <h2 class="sensor-title" data-node-id="125:108">传感器状态</h2>
+          </div>
+          <div class="sensor-list">
+            <div class="sensor-item" data-node-id="125:98">
+              <span class="sensor-icon" aria-hidden="true">
+                <img src="assets/sensor-icon-depth.svg" alt="" />
+              </span>
+              <span class="name">深度传感器</span>
+              <span class="depth" id="statDepthVal">23.6m</span>
+              <span class="st bad" id="statDepth">未连接</span>
+            </div>
+            <div class="sensor-item" data-node-id="413:21">
+              <span class="sensor-icon" aria-hidden="true">
+                <img src="assets/sensor-icon-imu.svg" alt="" />
+              </span>
+              <span class="name">IMU姿态</span>
+              <span class="depth" id="statPitch">23.6m</span>
+              <span class="st ok" id="statImu">正常</span>
+            </div>
+            <div class="sensor-item" data-node-id="413:31">
+              <span class="sensor-icon" aria-hidden="true">
+                <img src="assets/sensor-icon-esc.svg" alt="" />
+              </span>
+              <span class="name">ESC1</span>
+              <span class="depth" id="statEsc1Val">23.6m</span>
+              <span class="st ok" id="statEsc1">正常</span>
+            </div>
+            <div class="sensor-item" data-node-id="413:41">
+              <span class="sensor-icon" aria-hidden="true">
+                <img src="assets/sensor-icon-esc.svg" alt="" />
+              </span>
+              <span class="name">ESC2</span>
+              <span class="depth" id="statEsc2Val">23.6m</span>
+              <span class="st ok" id="statEsc2">正常</span>
+            </div>
+            <div class="sensor-item" data-node-id="413:51">
+              <span class="sensor-icon" aria-hidden="true">
+                <img src="assets/sensor-icon-servo.svg" alt="" />
+              </span>
+              <span class="name">舵机1</span>
+              <span class="depth" id="statServoVal">23.6m</span>
+              <span class="st ok" id="statServo">正常</span>
+            </div>
+            <div class="sensor-item" data-node-id="413:61">
+              <span class="sensor-icon" aria-hidden="true">
+                <img src="assets/sensor-icon-camera.svg" alt="" />
+              </span>
+              <span class="name">Camera1</span>
+              <span class="depth" id="statCameraVal">23.6m</span>
+              <span class="st bad" id="statCamera">未连接</span>
+            </div>
+          </div>
+        </section>
+
+        <div class="left-metrics">
+          <div>
+            <div class="lbl">连接状态</div>
+            <div class="val" id="connQuality">强</div>
+          </div>
+          <div>
+            <div class="lbl">延迟</div>
+            <div class="val" id="connLatency">42 ms</div>
+          </div>
+          <div>
+            <div class="lbl">丢包率</div>
+            <div class="val" id="connPacketLoss">0.2%</div>
+          </div>
+        </div>
+
+        <section class="center-video">
+          <div class="frame">
+            <video id="webcam" class="webcam" autoplay playsinline muted></video>
+            <div class="webcam-hint" id="webcamHint">
+              <span id="webcamHintText">点击打开摄像头（需浏览器权限）</span>
+              <button type="button" class="webcam-start-btn" id="btnWebcamStart">打开摄像头</button>
+            </div>
+            <div class="vid-title">实时视频监控</div>
+            <div class="cam-pill">主摄像头</div>
+            <div class="vid-hud-depth">
+              <span>50m</span>
+              <span>40m</span>
+              <span>30m</span>
+              <span>20m</span>
+              <span>10m</span>
+              <span>0m</span>
+            </div>
+            <div class="vid-hud-compass">
+              <span>NW</span>
+              <span>N</span>
+              <span>NE</span>
+            </div>
+            <div class="vid-depth-tag">12</div>
+            <div class="vid-hud-pitch">
+              俯仰角
+              <b id="hudPitch">0</b>
+            </div>
+            <div class="vid-adi" aria-hidden="true">
+              <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="46" fill="none" stroke="#1a2530" stroke-width="3.5" />
+                <g id="adiHorizon">
+                  <line x1="8" y1="50" x2="92" y2="50" stroke="#3a6a8a" stroke-width="3.5" />
+                  <line x1="50" y1="8" x2="50" y2="92" stroke="#3a6a8a" stroke-width="3" />
+                </g>
+              </svg>
+            </div>
+            <div class="vid-toolbar" data-node-id="418:207">
+              <button type="button" class="vid-tool-btn" id="btnVidCamera" title="截图">
+                <img
+                  src="assets/vid-btn-camera.png"
+                  alt=""
+                  onerror="this.onerror=null;this.src='https://www.figma.com/api/mcp/asset/4e6c5a7d-7e93-4939-97d5-953833be55df'"
+                />
+              </button>
+              <button
+                type="button"
+                class="vid-tool-btn vid-tool-record"
+                id="btnVidRecord"
+                title="录制"
+                aria-pressed="false"
+              >
+                <img
+                  src="assets/vid-btn-record.png"
+                  alt=""
+                  onerror="this.onerror=null;this.src='https://www.figma.com/api/mcp/asset/b6fae352-6e46-4293-9a62-94372cc5f349'"
+                />
+              </button>
+              <button
+                type="button"
+                class="vid-tool-btn vid-tool-mic"
+                id="btnVidMic"
+                title="麦克风"
+                aria-pressed="true"
+              >
+                <img src="assets/vid-btn-mic-off.png" alt="" />
+              </button>
+            </div>
+            <div class="collision-flash" id="collisionFlash"></div>
+          </div>
+        </section>
+
+        <section class="panel center-data">
+          <div class="title">传感器原数据</div>
+          <div class="data-layout">
+            <div class="data-col-left">
+              <div class="data-card">
+                <span class="tag">ESC1</span>
+                <div class="data-lines">
+                  <div class="line">PWM频率：<b>400 Hz</b></div>
+                  <div class="line">母线电压：<b>24.0 V</b></div>
+                </div>
+              </div>
+              <div class="data-card">
+                <span class="tag">ESC2</span>
+                <div class="data-lines">
+                  <div class="line">PWM频率：<b>400 Hz</b></div>
+                  <div class="line">母线电压：<b>24.0 V</b></div>
+                </div>
+              </div>
+              <div class="data-card">
+                <span class="tag">舵机1</span>
+                <div class="data-lines">
+                  <div class="line">PWM频率：<b>400 Hz</b></div>
+                  <div class="line">当前角度：<b id="svAngleDisp">--</b></div>
+                </div>
+              </div>
+            </div>
+            <div class="data-col-right">
+              <div class="data-card imu-card">
+                <span class="tag">IMU</span>
+                <div class="imu-rows">
+                  <div class="imu-row"><span>横滚 Roll</span><b id="dataRollVal">--°</b></div>
+                  <div class="imu-row"><span>俯仰 Pitch</span><b id="dataPitchVal">--°</b></div>
+                  <div class="imu-row"><span>航向 Yaw</span><b id="dataYawVal">--°</b></div>
+                  <div class="imu-row"><span>角速度 X</span><b id="dataGxVal">-- °/s</b></div>
+                  <div class="imu-row"><span>角速度 Y</span><b id="dataGyVal">-- °/s</b></div>
+                  <div class="imu-row"><span>角速度 Z</span><b id="dataGzVal">-- °/s</b></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel center-log">
+          <div class="head">
+            <div class="title">接收日志</div>
+            <div>
+              <button type="button" id="btnClearLog">清空</button>
+              <button type="button" id="btnExportLog">导出</button>
+            </div>
+          </div>
+          <pre id="log"></pre>
+        </section>
+
+        <aside class="robot-ctrl">
+          <div class="robot-ctrl-title">机器人控制</div>
+
+          <section class="ctrl-block hw-panel">
+            <div class="bar-title">串口</div>
+            <div class="block-body connect-row">
+              <label class="pill-baud">
+                <select id="baud" aria-label="波特率">
+                  <option value="115200" selected>115200</option>
+                </select>
+                <span class="pill-chevron-btn" aria-hidden="true"></span>
+              </label>
+              <button type="button" class="pill-fill pill-connect" id="btnConnect">连接</button>
+              <button type="button" class="pill-ghost pill-disconnect" id="btnDisconnect" disabled>断开</button>
+            </div>
+          </section>
+
+          <section class="ctrl-block hw-panel">
+            <div class="bar-title">ESC1 · GPIO4</div>
+            <div class="hw-panel-body">
+              <label class="hw-field">速度 %<input type="number" class="esc-spd-input" id="esc1Spd" min="1" max="100" value="30" disabled /></label>
+              <div class="hw-btns">
+                <button type="button" class="esc-dir-btn" id="btnEsc1Rev" disabled>反转</button>
+                <button type="button" class="esc-dir-btn esc-dir-stop" id="btnEsc1Stop" disabled>停止</button>
+                <button type="button" class="esc-dir-btn" id="btnEsc1Fwd" disabled>正转</button>
+              </div>
+              <p class="hw-status" id="esc1Status">未连接</p>
+            </div>
+          </section>
+
+          <section class="ctrl-block hw-panel">
+            <div class="bar-title">ESC2 · GPIO6</div>
+            <div class="hw-panel-body">
+              <label class="hw-field">速度 %<input type="number" class="esc-spd-input" id="esc2Spd" min="1" max="100" value="30" disabled /></label>
+              <div class="hw-btns">
+                <button type="button" class="esc-dir-btn" id="btnEsc2Rev" disabled>反转</button>
+                <button type="button" class="esc-dir-btn esc-dir-stop" id="btnEsc2Stop" disabled>停止</button>
+                <button type="button" class="esc-dir-btn" id="btnEsc2Fwd" disabled>正转</button>
+              </div>
+              <p class="hw-status" id="esc2Status">未连接</p>
+            </div>
+          </section>
+
+          <section class="ctrl-block hw-panel">
+            <div class="bar-title">电调总控</div>
+            <div class="hw-panel-body">
+              <button type="button" class="hw-btn-wide" id="btnStopAll" disabled>两路 ESC 全部停止</button>
+            </div>
+          </section>
+
+          <section class="ctrl-block hw-panel">
+            <div class="bar-title-row">
+              <span class="bar-title-label">尾部舵机 · GPIO15</span>
+              <button type="button" class="btn-sv-toggle" id="btnSvToggle" disabled>摆动</button>
+            </div>
+            <div class="hw-panel-body">
+              <label class="hw-field">角度 0–90°<input type="range" id="svAngle" min="0" max="90" value="45" disabled /></label>
+              <div class="hw-row">
+                <span id="svAngleVal">45°</span>
+                <button type="button" class="btn-sv-apply" id="btnSvApply" disabled>应用</button>
+              </div>
+              <label class="hw-field">摆动速度<input type="range" id="svSpd" min="1" max="100" value="50" disabled /></label>
+              <div class="hw-btns">
+                <button type="button" class="esc-dir-btn esc-dir-stop hw-btn-wide" id="btnSvStop" disabled>停止</button>
+              </div>
+              <p class="hw-status" id="svStatus">未连接</p>
+            </div>
+          </section>
+
+          <section class="ctrl-block hw-panel">
+            <div class="bar-title">IMU</div>
+            <div class="hw-panel-body">
+              <button type="button" class="pill-fill pill-imu" id="btnImuZero" disabled>姿态归零</button>
+            </div>
+          </section>
+
+          <section class="ctrl-block hw-panel">
+            <div class="bar-title">调试命令</div>
+            <div class="hw-panel-body esc-cmd-row">
+              <input type="text" class="esc-cmd-input" id="cmdInput" placeholder="M1F / M2F / SVANG:45" disabled autocomplete="off" spellcheck="false" />
+              <button type="button" class="esc-cmd-send" id="btnCmdSend">发送</button>
+            </div>
+          </section>
+
+          <div class="right-actions">
+            <button type="button" class="btn-emergency" id="btnEmergency" disabled>紧急停止</button>
+          </div>
+        </aside>
+
+        <footer class="footer" id="timeline">
+          <span class="footer-title">状态概览</span>
+          <div class="tl-flow">
+            <div class="tl-node"><span class="tm">14:30:12</span> 机器人已连接</div>
+            <div class="tl-sep"></div>
+            <div class="tl-node"><span class="tm">14:30:45</span> 下潜至10m</div>
+            <div class="tl-sep"></div>
+            <div class="tl-node"><span class="tm">14:31:30</span> 声呐扫描完成</div>
+            <div class="tl-sep"></div>
+            <div class="tl-node warn"><span class="tm">14:32:05</span> 检测到疑似生命体征</div>
+            <div class="tl-sep"></div>
+            <div class="tl-node"><span class="tm">14:32:10</span> AI分析完成</div>
+          </div>
+        </footer>
+      </div>
+      </div>
+    </div>
+    <script>
+      if (location.protocol === "file:") document.body.classList.add("file-protocol");
+    </script>
+    <script src="responsive.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>

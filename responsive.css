@@ -1,0 +1,94 @@
+/* Figma 125:5 — 比例锁定 + 可读性自适应 */
+
+#scale-stage {
+  position: relative;
+  flex-shrink: 0;
+  aspect-ratio: 1436 / 957;
+}
+
+.scale-stage--active {
+  overflow: hidden;
+}
+
+body.layout-scale {
+  overflow: hidden;
+}
+
+.viewport--scale {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+}
+
+body.layout-scale .ui {
+  flex-shrink: 0;
+  transform-origin: 0 0;
+  will-change: transform;
+}
+
+/* 仅在缩小后启用紧凑间距，避免 1:1 时被压缩 */
+body.layout-scale.layout-compact .robot-ctrl {
+  gap: 8px;
+  padding: 10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+body.layout-scale.layout-compact .robot-ctrl .robot-ctrl-title {
+  height: 18px;
+  line-height: 18px;
+  font-size: 12px;
+  padding-left: 8px;
+}
+
+body.layout-scale.layout-compact .robot-ctrl .ctrl-block {
+  padding: 5px 8px;
+  border-radius: 14px;
+}
+
+body.layout-scale.layout-compact .robot-ctrl .bar-title,
+body.layout-scale.layout-compact .robot-ctrl .bar-title-row {
+  height: 24px;
+  font-size: 11px;
+}
+
+body.layout-scale.layout-compact .robot-ctrl .block-body,
+body.layout-scale.layout-compact .robot-ctrl .hw-panel-body {
+  gap: 5px;
+  padding: 0 2px 2px;
+}
+
+body.layout-scale.layout-compact .robot-ctrl .pill-baud,
+body.layout-scale.layout-compact .robot-ctrl .pill-fill,
+body.layout-scale.layout-compact .robot-ctrl .pill-ghost,
+body.layout-scale.layout-compact .robot-ctrl .pill-imu,
+body.layout-scale.layout-compact .robot-ctrl .esc-dir-btn,
+body.layout-scale.layout-compact .robot-ctrl .esc-spd-input,
+body.layout-scale.layout-compact .robot-ctrl .esc-cmd-input,
+body.layout-scale.layout-compact .robot-ctrl .esc-cmd-send,
+body.layout-scale.layout-compact .robot-ctrl .hw-btn-wide,
+body.layout-scale.layout-compact .robot-ctrl .btn-sv-apply,
+body.layout-scale.layout-compact .robot-ctrl .btn-sv-toggle {
+  height: 24px;
+  font-size: 10px;
+}
+
+body.layout-scale.layout-compact .robot-ctrl .btn-emergency {
+  height: 36px;
+  font-size: 13px;
+}
+
+body.layout-scale.layout-compact .robot-ctrl .right-actions {
+  margin-top: auto;
+  gap: 6px;
+}
+
+/* 极小窗口：保持比例，允许滚动查看，避免挤压到不可读 */
+body.layout-scale.layout-scroll-fit {
+  overflow: auto;
+}
